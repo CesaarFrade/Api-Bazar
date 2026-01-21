@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface IClienteService {
     public List<Cliente> getClientes();
+    public Cliente findCliente(Long id_cliente);
     public void saveCliente(Cliente cliente);
     public void deleteCliente(Long id_cliente);
     public void editCliente(Cliente cliente, Long id_cliente);

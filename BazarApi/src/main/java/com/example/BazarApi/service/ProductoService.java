@@ -25,6 +25,17 @@ public class ProductoService implements IProductoService{
     public List<Producto> getProductos() {
         return proRepo.findAll();
     }
+    
+    @Override
+    public Producto findProducto(Long id_producto) {
+        Producto producto = proRepo.findById(id_producto).orElse(null);
+        if(producto != null){
+            return producto;
+        } else{
+            throw new NotFoundException("Por el momento, no existe ningun producto con "
+                    + "el id indicado");
+        }
+    }
 
     @Override
     public void saveProducto(Producto producto) {

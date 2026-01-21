@@ -31,6 +31,11 @@ public class ProductoController {
         return proServ.getProductos();
     }
     
+    @GetMapping("/productos/{codigo_producto}")
+    public Producto getProductoById(@PathVariable Long codigo_producto){
+        return proServ.findProducto(codigo_producto);
+    }
+    
     @PostMapping("/productos/crear")
     public void saveProducto(@RequestBody Producto producto){
         proServ.saveProducto(producto);

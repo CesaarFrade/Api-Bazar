@@ -26,6 +26,17 @@ public class ClienteService implements IClienteService{
     public List<Cliente> getClientes() {
         return cliRepo.findAll();
     }
+    
+    @Override
+    public Cliente findCliente(Long id_cliente) {
+        Cliente cliente = cliRepo.findById(id_cliente).orElse(null);
+        if(cliente != null){
+            return cliente;
+        } else{
+            throw new NotFoundException("Por el momento, no existe ningun cliente"
+                    + "con el id indicado");
+        }
+    }
 
     @Override
     public void saveCliente(Cliente cliente) {

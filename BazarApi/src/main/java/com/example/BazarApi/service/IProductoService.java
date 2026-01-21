@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface IProductoService {
     public List<Producto> getProductos();
+    public Producto findProducto(Long id_producto);
     public void saveProducto(Producto producto);
     public void deleteProducto(Long id_producto);
     public void editProducto(Producto producto, Long id_producto);

@@ -5,9 +5,7 @@
 package com.example.BazarApi.controller;
 
 import com.example.BazarApi.model.Cliente;
-import com.example.BazarApi.model.Producto;
 import com.example.BazarApi.service.ClienteService;
-import com.example.BazarApi.service.ProductoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,6 +29,11 @@ public class ClienteController {
     @GetMapping("/clientes")
     public List<Cliente> getClientes(){
         return cliServ.getClientes();
+    }
+    
+    @GetMapping("/clientes/{id_cliente}")
+    public Cliente getClienteById(@PathVariable Long id_cliente){
+        return cliServ.findCliente(id_cliente);
     }
     
     @PostMapping("/clientes/crear")
