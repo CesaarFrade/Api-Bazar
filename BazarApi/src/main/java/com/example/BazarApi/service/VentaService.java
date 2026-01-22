@@ -122,4 +122,22 @@ public class VentaService implements IVentaService {
         }
         return venta.getListaProductos();
     }
+
+    @Override
+    public String getMontoYCantidadVentaDeUnDia(LocalDate dia) {
+        List<Venta> ventasTotales = getVentas();
+        Double montoTotal = 0.0;
+        int cantidadVentas = 0;
+        for(Venta venta : ventasTotales){
+            if(venta.getFecha_venta().equals(dia)){
+                List<Producto> productosVenta = venta.getListaProductos();
+                for(Producto producto : productosVenta){
+                    montoTotal += producto.getCoste();
+                }
+                cantidadVentas += 1;
+            }
+        }
+        return "En el dia " + dia.toString() + " se han hecho un total de " +
+                cantidadVentas + " por un monto de " + montoTotal;
+    }
 }

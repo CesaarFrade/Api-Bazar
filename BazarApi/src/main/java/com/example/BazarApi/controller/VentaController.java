@@ -6,6 +6,7 @@ package com.example.BazarApi.controller;
 
 import com.example.BazarApi.model.Venta;
 import com.example.BazarApi.service.VentaService;
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -51,5 +52,10 @@ public class VentaController {
     @GetMapping("/ventas/productos/{codigo_venta}")
     public void getProductosVenta(@PathVariable Long codigo_venta){
         venServ.getProductosVenta(codigo_venta);
+    }
+    
+    @GetMapping("/ventas/{fecha_venta}")
+    public String getMontoYVentasDia(@PathVariable LocalDate fecha_venta){
+        return venServ.getMontoYCantidadVentaDeUnDia(fecha_venta);
     }
 }
