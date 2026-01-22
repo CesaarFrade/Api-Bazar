@@ -55,11 +55,21 @@ public class ClienteService implements IClienteService{
 
     @Override
     public void editCliente(Cliente cliente, Long id_cliente) {
-        if(cliRepo.existsById(id_cliente)){
-            saveCliente(cliente);
-        } else{
-            throw new NotFoundException("Por el momento, no existe ningun cliente"
-                    + "con el id indicado");
+        Cliente clienteExistente = cliRepo.findById(id_cliente).orElseThrow(() -> 
+            new NotFoundException("Por el momento, no existe ningun cliente con "
+                    + "el id indicado"));
+        String nombre = cliente.getNombre();
+        if(nombre != null){
+            clienteExistente.setNombre(nombre);
         }
+        String apellido = cliente.getApellido();
+        if(apellido != null){
+            clienteExistente.setApellido(apellido);
+        }
+        String dni = cliente.getDni();
+        if(dni != null){
+            clienteExistente.setDni(dni);
+        }
+        saveCliente(clienteExistente);
     }
 }

@@ -4,6 +4,15 @@
  */
 package com.example.BazarApi.service;
 
+import com.example.BazarApi.exception.NotFoundException;
+import com.example.BazarApi.model.Cliente;
+import com.example.BazarApi.model.Producto;
+import com.example.BazarApi.model.Venta;
+import com.example.BazarApi.repository.ClienteRepository;
+import com.example.BazarApi.repository.VentaRepository;
+import java.time.LocalDate;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,6 +21,69 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class VentaService {
+public class VentaService implements IVentaService {
+    @Autowired
+    private VentaRepository venRepo;
+    @Autowired
+    private ClienteRepository cliRepo;
     
+    @Override
+    public List<Venta> getVentas() {
+        return venRepo.findAll();
+    }
+
+    @Override
+    public Venta getVenta(Long id_venta) {
+        Venta venta = venRepo.findById(id_venta).orElse(null);
+        if(venta != null){
+            return venta; 
+        } else{
+            throw new NotFoundException("Por el momento, no existe ninguna venta con "
+                    + "el id indicado");
+        }
+    }
+
+    @Override
+    public void saveVenta(Venta venta) {
+        venRepo.save(venta);
+    }
+
+    @Override
+    public void deleteVenta(Long id_venta) {
+        Venta venta = venRepo.findById(id_venta).orElse(null);
+        if(venta != null){
+            venRepo.deleteById(id_venta); 
+        } else{
+            throw new NotFoundException("Por el momento, no existe ninguna venta con "
+                    + "el id indicado");
+        }
+    }
+
+    @Override
+    public void editVenta(Venta venta, Long id_venta) {
+        Venta ventaExistente = venRepo.findById(id_venta).orElseThrow(() -> 
+            new NotFoundException("Por el momento, no existe ninguna venta con "
+                    + "el id indicado"));
+
+        // Seteo manual de los campos no nulos
+        LocalDate nuevaFecha = venta.getFecha_venta();
+        if(nuevaFecha != null){
+            ventaExistente.setFecha_venta(nuevaFecha);
+        }
+        Double total = venta.getTotal();
+        if(total != null){
+            ventaExistente.setTotal(total);
+        }
+        List<Producto> listaProductos = venta.getListaProductos();
+        if(listaProductos != null){
+            ventaExistente.setListaProductos(listaProductos);
+        }
+        if (venta.getUnCliente() != null) {
+            Cliente cliente = cliRepo.findById(venta.getUnCliente().getId_cliente()).orElse(null);
+            if (cliente != null) {
+                ventaExistente.setUnCliente(cliente);
+            }
+        }
+        saveVenta(ventaExistente);
+    }
 }

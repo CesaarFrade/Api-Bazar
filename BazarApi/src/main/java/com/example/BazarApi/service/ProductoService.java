@@ -54,11 +54,25 @@ public class ProductoService implements IProductoService{
 
     @Override
     public void editProducto(Producto producto, Long id_producto) {
-        if(proRepo.existsById(id_producto)){
-            saveProducto(producto);
-        } else{
-            throw new NotFoundException("Por el momento, no existe ningun producto con "
-                    + "el id indicado");
+        Producto productoExistente = proRepo.findById(id_producto).orElseThrow(() -> 
+            new NotFoundException("Por el momento, no existe ningun producto con "
+                    + "el id indicado"));
+        String nombre = producto.getNombre();
+        if(nombre != null){
+            productoExistente.setNombre(nombre);
         }
+        String marca = producto.getMarca();
+        if(marca != null){
+            productoExistente.setMarca(marca);
+        }
+        Double coste = producto.getCoste();
+        if(coste != null){
+            productoExistente.setCoste(coste);
+        }
+        Double cantidadDisponible = producto.getCantidad_disponible();
+        if(cantidadDisponible != null){
+            productoExistente.setCantidad_disponible(cantidadDisponible);
+        }
+        saveProducto(productoExistente);
     }   
 }
