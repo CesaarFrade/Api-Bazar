@@ -4,10 +4,20 @@
  */
 package com.example.BazarApi.dto;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  *
  * @author César
  */
+
+@NoArgsConstructor
+@Getter @Setter
 public class VentaDTO {
-    
+    Long codigo_venta;
+    int cantidad_productos;
+    String nombre_cliente;
+    String apellido_cliente;
 }

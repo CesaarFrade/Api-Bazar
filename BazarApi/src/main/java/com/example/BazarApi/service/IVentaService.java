@@ -4,6 +4,7 @@
  */
 package com.example.BazarApi.service;
 
+import com.example.BazarApi.dto.VentaDTO;
 import com.example.BazarApi.model.Producto;
 import com.example.BazarApi.model.Venta;
 import java.time.LocalDate;
@@ -21,4 +22,5 @@ public interface IVentaService {
     public void editVenta(Venta venta, Long id_venta);
     public List<Producto> getProductosVenta(Long id_venta);
     public String getMontoYCantidadVentaDeUnDia(LocalDate dia);
+    public VentaDTO getVentaMasCara();
 }

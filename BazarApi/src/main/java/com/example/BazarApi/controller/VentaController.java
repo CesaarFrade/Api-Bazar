@@ -4,6 +4,7 @@
  */
 package com.example.BazarApi.controller;
 
+import com.example.BazarApi.dto.VentaDTO;
 import com.example.BazarApi.model.Venta;
 import com.example.BazarApi.service.VentaService;
 import java.time.LocalDate;
@@ -57,5 +58,10 @@ public class VentaController {
     @GetMapping("/ventas/{fecha_venta}")
     public String getMontoYVentasDia(@PathVariable LocalDate fecha_venta){
         return venServ.getMontoYCantidadVentaDeUnDia(fecha_venta);
+    }
+    
+    @GetMapping("/ventas/mayor_venta")
+    public VentaDTO getInfoVentaMasCara(){
+        return venServ.getVentaMasCara();
     }
 }

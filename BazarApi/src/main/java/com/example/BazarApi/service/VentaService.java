@@ -4,6 +4,7 @@
  */
 package com.example.BazarApi.service;
 
+import com.example.BazarApi.dto.VentaDTO;
 import com.example.BazarApi.exception.NotFoundException;
 import com.example.BazarApi.model.Cliente;
 import com.example.BazarApi.model.Producto;
@@ -139,5 +140,32 @@ public class VentaService implements IVentaService {
         }
         return "En el dia " + dia.toString() + " se han hecho un total de " +
                 cantidadVentas + " por un monto de " + montoTotal;
+    }
+
+    @Override
+    public VentaDTO getVentaMasCara() {   
+        List<Venta> ventasTotales = getVentas();
+        //Manejo de lista vacía
+        if (ventasTotales.isEmpty()) {
+            throw new NotFoundException("No hay ventas registradas para calcular la más cara.");
+        }
+        Double monto_max = -1.0;
+        Venta ventaMax = null;
+        for(Venta venta : ventasTotales){
+            Double monto_venta = 0.0;
+            for(Producto producto : venta.getListaProductos()){
+                monto_venta += producto.getCoste();
+            }
+            if(monto_venta > monto_max){
+                monto_max = monto_venta;
+                ventaMax = venta;
+            }
+        }
+        VentaDTO ventaDTO = new VentaDTO();
+        ventaDTO.setCodigo_venta(ventaMax.getCodigo_venta());
+        ventaDTO.setCantidad_productos(ventaMax.getListaProductos().size());
+        ventaDTO.setNombre_cliente(ventaMax.getUnCliente().getNombre());
+        ventaDTO.setApellido_cliente(ventaMax.getUnCliente().getApellido());
+        return ventaDTO;
     }
 }
