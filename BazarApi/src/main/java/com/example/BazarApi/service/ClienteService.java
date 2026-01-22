@@ -21,7 +21,7 @@ public class ClienteService implements IClienteService{
     @Autowired
     private ClienteRepository cliRepo;
     
-    
+    //Métodos CRUD
     @Override
     public List<Cliente> getClientes() {
         return cliRepo.findAll();

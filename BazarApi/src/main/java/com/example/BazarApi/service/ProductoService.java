@@ -7,6 +7,7 @@ package com.example.BazarApi.service;
 import com.example.BazarApi.exception.NotFoundException;
 import com.example.BazarApi.model.Producto;
 import com.example.BazarApi.repository.ProductoRepository;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ public class ProductoService implements IProductoService{
     @Autowired
     private ProductoRepository proRepo;
     
+    //Métodos CRUD
     @Override
     public List<Producto> getProductos() {
         return proRepo.findAll();
@@ -75,4 +77,16 @@ public class ProductoService implements IProductoService{
         }
         saveProducto(productoExistente);
     }   
+    
+    //Otros Métodos
+    public List<Producto> getProductosStockMenorACinco(){
+        List<Producto> productosTotales = getProductos();
+        ArrayList<Producto> productosPocoStock = new ArrayList<>();
+        for(Producto producto : productosTotales){
+            if(producto.getCantidad_disponible() < 5){
+                productosPocoStock.add(producto);
+            }
+        }
+        return productosPocoStock;
+    }
 }

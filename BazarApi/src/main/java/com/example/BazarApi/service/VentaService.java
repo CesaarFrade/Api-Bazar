@@ -27,13 +27,14 @@ public class VentaService implements IVentaService {
     @Autowired
     private ClienteRepository cliRepo;
     
+    //Métodos CRUD
     @Override
     public List<Venta> getVentas() {
         return venRepo.findAll();
     }
 
     @Override
-    public Venta getVenta(Long id_venta) {
+    public Venta findVenta(Long id_venta) {
         Venta venta = venRepo.findById(id_venta).orElse(null);
         if(venta != null){
             return venta; 
@@ -85,5 +86,14 @@ public class VentaService implements IVentaService {
             }
         }
         saveVenta(ventaExistente);
+    }
+
+    @Override
+    public List<Producto> getProductosVenta(Long id_venta) {
+        Venta venta = venRepo.findById(id_venta).orElse(null);
+        if(venta == null){
+            throw new NotFoundException("Por el momento, no existe ninguna venta con el id indicado");
+        }
+        return venta.getListaProductos();
     }
 }

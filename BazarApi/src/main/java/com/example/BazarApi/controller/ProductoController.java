@@ -50,4 +50,9 @@ public class ProductoController {
     public void editProducto(@PathVariable Long codigo_producto, @RequestBody Producto producto){
         proServ.editProducto(producto, codigo_producto);
     }
+    
+    @GetMapping("/productos/falta_stock")
+    public List<Producto> getProductosStockMenorACinco(){
+        return proServ.getProductosStockMenorACinco();
+    }
 }

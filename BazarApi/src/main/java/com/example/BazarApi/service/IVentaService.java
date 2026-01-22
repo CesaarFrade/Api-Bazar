@@ -4,6 +4,7 @@
  */
 package com.example.BazarApi.service;
 
+import com.example.BazarApi.model.Producto;
 import com.example.BazarApi.model.Venta;
 import java.util.List;
 
@@ -13,8 +14,9 @@ import java.util.List;
  */
 public interface IVentaService {
     public List<Venta> getVentas();
-    public Venta getVenta(Long id_venta);
+    public Venta findVenta(Long id_venta);
     public void saveVenta(Venta venta);
     public void deleteVenta(Long id_venta);
     public void editVenta(Venta venta, Long id_venta);
+    public List<Producto> getProductosVenta(Long id_venta);
 }
