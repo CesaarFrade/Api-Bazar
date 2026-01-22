@@ -10,6 +10,7 @@ import com.example.BazarApi.model.Producto;
 import com.example.BazarApi.model.Venta;
 import com.example.BazarApi.repository.ClienteRepository;
 import com.example.BazarApi.repository.VentaRepository;
+import jakarta.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class VentaService implements IVentaService {
     private VentaRepository venRepo;
     @Autowired
     private ClienteRepository cliRepo;
+    @Autowired
+    private ProductoService proServ;
     
     //Métodos CRUD
     @Override
@@ -45,7 +48,30 @@ public class VentaService implements IVentaService {
     }
 
     @Override
+    @Transactional // Si algo falla, no se guarda ni la venta ni se descuenta stock
     public void saveVenta(Venta venta) {
+        List<Producto> listaProductosVenta = venta.getListaProductos();
+    
+        if (listaProductosVenta == null || listaProductosVenta.isEmpty()) {
+            throw new NotFoundException("La venta debe contener al menos un producto");
+        }
+
+        for(Producto p : listaProductosVenta) {
+            // BUSCAMOS el producto real en la DB usando el ID que viene en el JSON
+            Producto prodDb = proServ.findProducto(p.getCodigo_producto());
+
+            if(prodDb.getCantidad_disponible() > 0) {
+                // Restamos sobre el valor REAL de la base de datos
+                prodDb.setCantidad_disponible(prodDb.getCantidad_disponible() - 1);
+
+                // Guardamos el cambio de stock
+                proServ.editProducto(prodDb, prodDb.getCodigo_producto());
+            } else {
+                throw new NotFoundException("No hay stock para: " + prodDb.getNombre());
+            }
+        }
+
+        // Al final, guardamos la venta
         venRepo.save(venta);
     }
 
