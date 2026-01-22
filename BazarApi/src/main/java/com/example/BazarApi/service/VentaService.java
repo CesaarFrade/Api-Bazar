@@ -10,6 +10,7 @@ import com.example.BazarApi.model.Cliente;
 import com.example.BazarApi.model.Producto;
 import com.example.BazarApi.model.Venta;
 import com.example.BazarApi.repository.ClienteRepository;
+import com.example.BazarApi.repository.ProductoRepository;
 import com.example.BazarApi.repository.VentaRepository;
 import jakarta.transaction.Transactional;
 import java.time.LocalDate;
@@ -28,6 +29,8 @@ public class VentaService implements IVentaService {
     private VentaRepository venRepo;
     @Autowired
     private ClienteRepository cliRepo;
+    @Autowired
+    private ProductoRepository proRepo;
     @Autowired
     private ProductoService proServ;
     
@@ -139,7 +142,7 @@ public class VentaService implements IVentaService {
             }
         }
         return "En el dia " + dia.toString() + " se han hecho un total de " +
-                cantidadVentas + " por un monto de " + montoTotal;
+                cantidadVentas + " ventas por un monto de " + montoTotal;
     }
 
     @Override

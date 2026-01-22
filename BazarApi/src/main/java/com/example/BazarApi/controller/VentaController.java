@@ -5,6 +5,7 @@
 package com.example.BazarApi.controller;
 
 import com.example.BazarApi.dto.VentaDTO;
+import com.example.BazarApi.model.Producto;
 import com.example.BazarApi.model.Venta;
 import com.example.BazarApi.service.VentaService;
 import java.time.LocalDate;
@@ -16,11 +17,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
  * @author César
  */
+
+@RestController
 public class VentaController {
     @Autowired
     private VentaService venServ;
@@ -51,11 +55,11 @@ public class VentaController {
     }
     
     @GetMapping("/ventas/productos/{codigo_venta}")
-    public void getProductosVenta(@PathVariable Long codigo_venta){
-        venServ.getProductosVenta(codigo_venta);
+    public List<Producto> getProductosVenta(@PathVariable Long codigo_venta){
+        return venServ.getProductosVenta(codigo_venta);
     }
     
-    @GetMapping("/ventas/{fecha_venta}")
+    @GetMapping("/ventas/montoyventa/{fecha_venta}")
     public String getMontoYVentasDia(@PathVariable LocalDate fecha_venta){
         return venServ.getMontoYCantidadVentaDeUnDia(fecha_venta);
     }

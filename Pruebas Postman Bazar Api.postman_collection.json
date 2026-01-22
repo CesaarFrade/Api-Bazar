@@ -1,0 +1,966 @@
+{
+	"info": {
+		"_postman_id": "6d9003cb-d0b9-4c29-8148-b98b0df174a1",
+		"name": "Pruebas Postman Bazar Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "51539043",
+		"_collection_link": "https://castrolvima-4057991.postman.co/workspace/Cesar's-Workspace~f77934ed-a928-4ba3-8caa-94092d9d92d1/collection/51539043-6d9003cb-d0b9-4c29-8148-b98b0df174a1?action=share&source=collection_link&creator=51539043"
+	},
+	"item": [
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "POST producto1",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Leche 1L\",\r\n    \"marca\" : \"Puleva\",\r\n    \"coste\" : 1.20,\r\n    \"cantidad_disponible\" : 24.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/productos/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST producto2",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"CocaCola 330ml\",\r\n    \"marca\" : \"CocaCola\",\r\n    \"coste\" : 1.10,\r\n    \"cantidad_disponible\" : 36.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/productos/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST producto3",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Fideos Instantaneos\",\r\n    \"marca\" : \"Yatekomo\",\r\n    \"coste\" : 1.80,\r\n    \"cantidad_disponible\" : 8.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/productos/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST producto4",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Sobre cromos de futbol\",\r\n    \"marca\" : \"Panini\",\r\n    \"coste\" : 1,\r\n    \"cantidad_disponible\" : 50.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/productos/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET productos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST producto5",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Platanos 1kg\",\r\n    \"marca\" : \"Platano de Canarias\",\r\n    \"coste\" : 3.15,\r\n    \"cantidad_disponible\" : 6.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/productos/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE producto5",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/productos/eliminar/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"eliminar",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET producto4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/productos/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT producto4",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Sobre cromos de futbol de la liga\",\r\n    \"marca\" : \"Adrenalyn\",\r\n    \"coste\" : 0.99,\r\n    \"cantidad_disponible\" : 48.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/productos/editar/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"editar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST producto6",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Roscon de reyes\",\r\n    \"marca\" : \"hacendado\",\r\n    \"coste\" : 7.99,\r\n    \"cantidad_disponible\" : 3.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/productos/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "POST Cliente1",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Juan\",\r\n    \"apellido\" : \"Perez\",\r\n    \"dni\" : \"12345678A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/clientes/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cliente2",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Paula\",\r\n    \"apellido\" : \"Fernandez\",\r\n    \"dni\" : \"23456789B\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/clientes/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cliente3",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Maria\",\r\n    \"apellido\" : \"Garcia\",\r\n    \"dni\" : \"34567890C\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/clientes/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Cliente4",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Sebastian\",\r\n    \"apellido\" : \"Gomez\",\r\n    \"dni\" : \"45678901D\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/clientes/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Clientes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Ciente3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/clientes/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT cliente3",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Marta\",\r\n    \"apellido\" : \"Gutierrez\",\r\n    \"dni\" : \"34567890X\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/clientes/editar/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"editar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE cliente4",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/clientes/eliminar/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"eliminar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ventas",
+			"item": [
+				{
+					"name": "POST venta1",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha_venta\" : \"2025-01-12\",\r\n    \"total\" : \"2.3\",\r\n    \"listaProductos\" : [\r\n        {\r\n            \"codigo_producto\": \"1\"\r\n        }, {\r\n            \"codigo_producto\": \"2\"\r\n        }\r\n    ],\r\n    \"unCliente\" : {\r\n        \"id_cliente\": \"1\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ventas/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ventas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ventas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST venta2",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha_venta\" : \"2025-01-12\",\r\n    \"total\" : \"2.8\",\r\n    \"listaProductos\" : [\r\n        {\r\n            \"codigo_producto\": \"3\"\r\n        }, {\r\n            \"codigo_producto\": \"4\"\r\n        }\r\n    ],\r\n    \"unCliente\" : {\r\n        \"id_cliente\": \"3\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ventas/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET venta2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ventas/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT venta2",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha_venta\" : \"2025-01-12\",\r\n    \"total\" : \"2.79\",\r\n    \"listaProductos\" : [\r\n        {\r\n            \"codigo_producto\": \"3\"\r\n        }, {\r\n            \"codigo_producto\": \"4\"\r\n        }\r\n    ],\r\n    \"unCliente\" : {\r\n        \"id_cliente\": \"2\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ventas/editar/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas",
+								"editar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST venta3",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha_venta\" : \"2025-03-12\",\r\n    \"total\" : \"2.2\",\r\n    \"listaProductos\" : [\r\n        {\r\n            \"codigo_producto\": \"1\"\r\n        }, {\r\n            \"codigo_producto\": \"4\"\r\n        }\r\n    ],\r\n    \"unCliente\" : {\r\n        \"id_cliente\": \"1\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ventas/crear",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE venta52",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ventas/eliminar/52",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas",
+								"eliminar",
+								"52"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Otras Consultas",
+			"item": [
+				{
+					"name": "GET productos con stock menor a 5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/productos/falta_stock",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"falta_stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET monto y ventas de un día",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ventas/montoyventa/2025-01-12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas",
+								"montoyventa",
+								"2025-01-12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET productos de una venta",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha_venta\" : \"2025-01-12\",\r\n    \"total\" : \"2.3\",\r\n    \"listaProductos\" : [\r\n        {\r\n            \"codigo_producto\": \"1\"\r\n        }, {\r\n            \"codigo_producto\": \"2\"\r\n        }\r\n    ],\r\n    \"unCliente\" : {\r\n        \"id_cliente\": \"1\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ventas/productos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas",
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET información de la venta mas cara",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ventas/mayor_venta",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ventas",
+								"mayor_venta"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST venta2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fecha_venta\" : \"2025-01-12\",\r\n    \"total\" : \"2.8\",\r\n    \"listaProductos\" : [\r\n        {\r\n            \"codigo_producto\": \"3\"\r\n        }, {\r\n            \"codigo_producto\": \"4\"\r\n        }\r\n    ],\r\n    \"unCliente\" : {\r\n        \"id_cliente\": \"3\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/ventas/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ventas",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
